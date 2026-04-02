@@ -1,0 +1,78 @@
+<!-- TopAppBar -->
+<header
+  class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 py-4"
+>
+  <div class="flex items-center gap-4">
+    <h1 class="text-xl font-black tracking-tighter text-white font-['Manrope'] uppercase">
+      KAREN ONO
+    </h1>
+  </div>
+</header>
+
+<main class="pt-24 pb-32">
+  <!-- Hero Section -->
+  <section class="px-6 mb-16">
+    <div class="mb-4">
+      <span class="font-label text-[0.6875rem] font-bold tracking-[0.2em] text-primary uppercase"
+        >Developer Portfolio</span
+      >
+    </div>
+    <h2
+      class="font-headline text-[3.5rem] leading-[0.95] font-extrabold tracking-tighter text-on-surface mb-6"
+    >
+      Fullstack <br />
+      Developer &amp; <br />
+      Engineer
+    </h2>
+    <p class="font-body text-lg leading-relaxed text-on-surface-variant max-w-xs">
+      Building robust end-to-end applications with a focus on code quality, scalability and
+      seamless user experiences.
+    </p>
+  </section>
+
+  <!-- About Me Section -->
+   <about-me></about-me>
+
+  <!-- Skills & Tech Stack Section -->
+  <tech-stack></tech-stack>
+
+  <!-- Professional Experience Section -->
+  <experience></experience>
+
+  <!-- Projects Section -->
+  <projects></projects>
+
+  <!-- Footer -->
+  <contact></contact>
+</main>
+
+<!-- BottomNavBar -->
+<nav
+  class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#0e0e0e]/70 backdrop-blur-xl border-t border-white/10 shadow-[0_-40px_80px_rgba(126,81,255,0.08)]"
+>
+  <div class="flex flex-col items-center text-white font-black" onclick="scrollToSection('aboutMe')">
+    <span class="material-symbols-outlined mb-1">person</span>
+    <span class="font-['Inter'] text-[11px] font-bold tracking-widest uppercase">Profile</span>
+  </div>
+
+  <div
+    class="flex flex-col items-center text-[#adaaaa] hover:text-white transition-all active:scale-90 duration-200"
+    onclick="scrollToSection('tech')">
+    <span class="material-symbols-outlined mb-1">terminal</span>
+    <span class="font-['Inter'] text-[11px] font-bold tracking-widest uppercase">Stack</span>
+  </div>
+
+  <div
+    class="flex flex-col items-center text-[#adaaaa] hover:text-white transition-all active:scale-90 duration-200"
+    onclick="scrollToSection('experience')">
+    <span class="material-symbols-outlined mb-1">work_history</span>
+    <span class="font-['Inter'] text-[11px] font-bold tracking-widest uppercase">History</span>
+  </div>
+
+  <div
+    class="flex flex-col items-center text-[#adaaaa] hover:text-white transition-all active:scale-90 duration-200"
+    onclick="scrollToSection('contact')">
+    <span class="material-symbols-outlined mb-1">chat_bubble</span>
+    <span class="font-['Inter'] text-[11px] font-bold tracking-widest uppercase">Contact</span>
+  </div>
+</nav>
