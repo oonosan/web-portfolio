@@ -1,3 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+.no-line {
+  border: none !important;
+}
+.tonal-transition {
+  background: linear-gradient(to bottom, #0e0e0e 0%, rgba(14, 14, 14, 0.8) 100%);
+}
+.perspective-chip {
+  background: #262626;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  display: inline-block;
+}
+
+body {
+  min-height: max(884px, 100dvh);
+}

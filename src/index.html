@@ -1,13 +1,89 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>WebPortfolio</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KAREN ONO | Fullstack Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@300;400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'tertiary-fixed': '#ff8db2',
+              'surface-bright': '#2c2c2c',
+              'on-primary': '#340090',
+              'on-error': '#490013',
+              'on-tertiary': '#6a0936',
+              surface: '#0e0e0e',
+              outline: '#767575',
+              'primary-dim': '#7e51ff',
+              tertiary: '#ff97b8',
+              'inverse-primary': '#6834eb',
+              'tertiary-container': '#fc81ab',
+              'primary-fixed': '#a98fff',
+              'surface-container': '#1a1a1a',
+              background: '#0e0e0e',
+              'on-tertiary-fixed': '#380019',
+              'on-surface': '#ffffff',
+              'surface-container-low': '#131313',
+              'secondary-dim': '#b987f2',
+              'primary-container': '#a98fff',
+              'primary-fixed-dim': '#9c7eff',
+              'on-tertiary-container': '#59002b',
+              'surface-container-lowest': '#000000',
+              'on-primary-fixed-variant': '#32008a',
+              'on-background': '#ffffff',
+              error: '#ff6e84',
+              'on-primary-container': '#280072',
+              'surface-dim': '#0e0e0e',
+              'tertiary-fixed-dim': '#f57ca5',
+              'inverse-on-surface': '#565555',
+              'on-secondary-container': '#e2c5ff',
+              'on-tertiary-fixed-variant': '#70103b',
+              'error-dim': '#d73357',
+              'on-primary-fixed': '#000000',
+              'on-error-container': '#ffb2b9',
+              'surface-variant': '#262626',
+              'secondary-fixed': '#e3c6ff',
+              primary: '#b6a0ff',
+              'surface-container-high': '#20201f',
+              'secondary-container': '#5d2c92',
+              'on-secondary-fixed': '#49147f',
+              'tertiary-dim': '#ef77a0',
+              'error-container': '#a70138',
+              'surface-container-highest': '#262626',
+              'on-surface-variant': '#adaaaa',
+              'outline-variant': '#484847',
+              'on-secondary-fixed-variant': '#67389d',
+              'inverse-surface': '#fcf9f8',
+              'on-secondary': '#3e0174',
+              'secondary-fixed-dim': '#d8b5ff',
+              secondary: '#c492fe',
+              'surface-tint': '#b6a0ff',
+            },
+            fontFamily: {
+              headline: ['Manrope'],
+              body: ['Inter'],
+              label: ['Inter'],
+            },
+            borderRadius: { DEFAULT: '0.125rem', lg: '0.25rem', xl: '0.5rem', full: '0.75rem' },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary-fixed">
+    <app-root></app-root>
+  </body>
 </html>
