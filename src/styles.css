@@ -25,6 +25,7 @@
   letter-spacing: 0.05em;
   color: #ffffff;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 body {

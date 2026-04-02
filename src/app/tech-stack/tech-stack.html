@@ -8,63 +8,16 @@
     </div>
     <div class="space-y-8">
       <div>
-        <h4 class="font-headline text-xs font-bold tracking-widest text-primary uppercase mb-4">
-          Frontend
-        </h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="perspective-chip">ANGULAR 17</span>
-          <span class="perspective-chip">RXJS</span>
-          <span class="perspective-chip">TYPESCRIPT</span>
-          <span class="perspective-chip">JAVASCRIPT</span>
-          <span class="perspective-chip">SCSS/SASS</span>
-          <span class="perspective-chip">TAILWIND</span>
-          <span class="perspective-chip">MATERIAL DESIGN</span>
-          <span class="perspective-chip">NGRX</span>
-          <span class="perspective-chip">SIGNALS</span>
-          <span class="perspective-chip">SIGNALR</span>
-          <span class="perspective-chip">GSAP</span>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-headline text-xs font-bold tracking-widest text-primary uppercase mb-4">
-          Backend &amp; APIs
-        </h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="perspective-chip">.NET (C#)</span>
-          <span class="perspective-chip">ASP.NET CORE</span>
-          <span class="perspective-chip">RESTFUL APIS</span>
-          <span class="perspective-chip">GRPC</span>
-          <span class="perspective-chip">JWT / OAUTH</span>
-          <span class="perspective-chip">SQL SERVER</span>
-          <span class="perspective-chip">MONGODB</span>
-          <span class="perspective-chip">ENTITY FRAMEWORK</span>
-          <span class="perspective-chip">CQRS / MEDIATR</span>
-          <span class="perspective-chip">MICROSERVICES</span>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-headline text-xs font-bold tracking-widest text-primary uppercase mb-4">
-          DevOps &amp; Tools
-        </h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="perspective-chip">AZURE DEVOPS</span>
-          <span class="perspective-chip">COSMOS DB</span>
-          <span class="perspective-chip">DOCKER</span>
-          <span class="perspective-chip">GIT / GITHUB</span>
-          <span class="perspective-chip">JIRA</span>
-          <span class="perspective-chip">AGILE (SCRUM)</span>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-headline text-xs font-bold tracking-widest text-primary uppercase mb-4">
-          Quality &amp; Excellence
-        </h4>
-        <div class="flex flex-wrap gap-2">
-          <span class="perspective-chip">UNIT TESTING (JEST)</span>
-          <span class="perspective-chip">XUNIT / KARMA</span>
-          <span class="perspective-chip">CODE REVIEWS</span>
-          <span class="perspective-chip">REFACTORING</span>
-        </div>
+        @for(tech of techStacks; track tech.name) {
+          <h4 class="font-headline text-xs font-bold tracking-widest text-primary uppercase mb-4">
+            {{ tech.name }}
+          </h4>
+          <div class="flex flex-wrap gap-2">
+            @for(tool of tech.technologies; track tool) {
+              <span class="perspective-chip">{{tool}}</span>
+            }
+          </div>
+        }
       </div>
     </div>
   </section>
