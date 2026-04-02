@@ -1,12 +1,11 @@
-import { CommonModule, UpperCasePipe } from '@angular/common';
+
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'tech-stack',
   templateUrl: './tech-stack.html',
   styleUrl: './tech-stack.css',
-  standalone: true,
-  imports: [ UpperCasePipe, CommonModule ]
+  standalone: true
 })
 export class TechStack {
   techStacks = [

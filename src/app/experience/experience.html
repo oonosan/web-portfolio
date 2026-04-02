@@ -6,84 +6,37 @@
       >
     </div>
     <div class="grid gap-12">
-      <!-- Job 1 -->
-      <div class="group border-l border-primary/20 pl-6 relative">
-        <div class="absolute w-2 h-2 bg-primary rounded-full -left-[5px] top-2"></div>
-        <div class="flex flex-col gap-2 mb-4">
-          <span class="font-label text-[10px] text-primary tracking-widest uppercase"
-            >Dec 2024 - Oct 2025</span
-          >
-          <h4 class="font-headline text-xl font-bold text-white uppercase">Endava: Finthrive</h4>
-          <p class="text-on-surface-variant text-xs font-bold tracking-widest">
-            FULL STACK DEVELOPER | HEALTHCARE
+      @for(experience of experiences; track experience.company) {
+        <div class="group border-l border-primary/20 pl-6 relative">
+          <div class="absolute w-2 h-2 bg-primary rounded-full -left-[5px] top-2"></div>
+          <div class="flex flex-col gap-2 mb-4">
+            <span class="font-label text-[10px] text-primary tracking-widest uppercase"
+              >{{ experience.duration }}</span
+            >
+            <h4 class="font-headline text-xl font-bold text-white uppercase">{{ experience.company }}</h4>
+            <p class="text-on-surface-variant text-xs font-bold tracking-widest uppercase">
+              {{ experience.role }}
+            </p>
+          </div>
+
+          <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-6">
+            {{ experience.description }}
           </p>
+
+          <ul class="list-disc text-on-surface-variant text-sm font-light leading-relaxed mb-2 list-inside">
+          @for(responsability of experience.responsabilities; track responsability) {
+              <li>{{ responsability }}</li>
+            }
+          </ul>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            @for(tech of experience.technologies; track tech) {
+              <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
+                >{{ tech }}</span
+              >
+            }
+          </div>
         </div>
-        <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-6">
-          Led technical research and frontend architectural decisions. Focused on code quality,
-          testing excellence, and microservices collaboration.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >.NET C#</span
-          >
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >gRPC</span
-          >
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >Angular</span
-          >
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >NgRx</span
-          >
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >CosmosDB</span
-          >
-        </div>
-        <a
-          class="text-primary font-label text-[10px] tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all"
-          href="#"
-        >
-          VIEW CASE STUDY <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-      </div>
-      <!-- Job 2 -->
-      <div class="group border-l border-white/10 pl-6 relative">
-        <div class="absolute w-2 h-2 bg-white/20 rounded-full -left-[5px] top-2"></div>
-        <div class="flex flex-col gap-2 mb-4">
-          <span class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase"
-            >Mar 2024 - Nov 2024</span
-          >
-          <h4 class="font-headline text-xl font-bold text-white uppercase">
-            Endava: Kinetic Advantage
-          </h4>
-          <p class="text-on-surface-variant text-xs font-bold tracking-widest">
-            FULL STACK DEVELOPER | FINANCIAL SERVICES
-          </p>
-        </div>
-        <p class="text-on-surface-variant text-sm font-light leading-relaxed mb-6">
-          Spearheaded the migration to Angular 17, delivering UX modernization and interface
-          optimization within a fast-paced Scrum environment.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >Angular 17</span
-          >
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >TypeScript</span
-          >
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >Jest</span
-          >
-          <span class="text-[10px] text-white/40 border border-white/10 px-2 py-0.5 rounded"
-            >Azure Pipelines</span
-          >
-        </div>
-        <a
-          class="text-primary font-label text-[10px] tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all"
-          href="#"
-        >
-          VIEW CASE STUDY <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-      </div>
+      }
     </div>
   </section>
