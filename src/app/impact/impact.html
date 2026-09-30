@@ -1,0 +1,17 @@
+<section id="impact" class="bg-ink text-paper">
+  <div class="mx-auto max-w-6xl px-6 py-20 md:py-28">
+    <div class="mb-14 grid gap-6 md:grid-cols-12">
+      <p class="eyebrow md:col-span-3 !text-paper/60">03 — Impact</p>
+      <h2 class="section-title md:col-span-9">Work that moved from idea to something leadership could evaluate.</h2>
+    </div>
+    <ul class="grid gap-px overflow-hidden rounded-2xl bg-paper/15 md:grid-cols-3">
+      @for (h of highlights; track h.label; let i = $index) {
+        <li class="flex flex-col gap-6 bg-ink p-8">
+          <span class="font-mono text-xs text-[#ff8a64]">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <h3 class="font-serif text-2xl leading-tight">{{ h.label }}</h3>
+          <p class="leading-relaxed text-paper/70">{{ h.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

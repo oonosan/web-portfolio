@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './experience.css',
 })
 export class Experience {
-  experiences = [
+  protected readonly experiences = [
     {
       company: 'Endava: Finthrive',
       duration: 'Dec 2024 - Oct 2025',
