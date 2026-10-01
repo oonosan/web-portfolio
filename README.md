@@ -57,9 +57,7 @@ runtime with no 3D models or image assets.
 
 [Vite](https://vite.dev), [React](https://react.dev),
 [React Three Fiber](https://r3f.docs.pmnd.rs) with
-[drei](https://github.com/pmndrs/drei) and
-[postprocessing](https://github.com/pmndrs/react-postprocessing) (bloom and vignette), and
-[Tailwind CSS](https://tailwindcss.com) v4. The 3D scene is a lazily loaded chunk, so the text
+[drei](https://github.com/pmndrs/drei), and [Tailwind CSS](https://tailwindcss.com) v4. The 3D scene is a lazily loaded chunk, so the text
 appears before the room finishes loading.
 
 ## Run it

@@ -180,10 +180,12 @@ function Mug() {
 function Lamp() {
   const light = useRef<THREE.PointLight>(null);
   const bulb = useRef<THREE.MeshStandardMaterial>(null);
+  const halo = useRef<THREE.MeshBasicMaterial>(null);
   useFrame(() => {
     const e = eveningAmount();
     if (light.current) light.current.intensity = 0.15 + e * 2.6;
     if (bulb.current) bulb.current.emissiveIntensity = 0.3 + e * 4;
+    if (halo.current) halo.current.opacity = e * 0.35;
   });
   return (
     <group position={[-1.9, DESK.top, -2.7]}>
@@ -212,6 +214,18 @@ function Lamp() {
                 ref={bulb}
                 color="#fff5dc"
                 emissive="#ffd28a"
+                toneMapped={false}
+              />
+            </mesh>
+            <mesh position-y={-0.05}>
+              <sphereGeometry args={[0.16, 16, 16]} />
+              <meshBasicMaterial
+                ref={halo}
+                color="#ffd28a"
+                transparent
+                opacity={0}
+                depthWrite={false}
+                blending={THREE.AdditiveBlending}
                 toneMapped={false}
               />
             </mesh>

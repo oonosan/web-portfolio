@@ -2,7 +2,6 @@ import { useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows, Sparkles } from '@react-three/drei';
-import { Bloom, EffectComposer, Vignette } from '@react-three/postprocessing';
 import { easing } from 'maath';
 import { chapters, pets } from '../content';
 import { eveningAmount, scroll } from '../scroll';
@@ -108,11 +107,19 @@ function Lights() {
     [],
   );
   const bg = useMemo(() => new THREE.Color(), []);
+  const pageBg = useRef('');
 
   useFrame(() => {
     const e = eveningAmount();
     bg.lerpColors(colors.bgDay, colors.bgNight, e);
     scene.background = bg;
+    // Keep the page behind the canvas the same colour as the scene, so a frame where the
+    // canvas is cleared (e.g. while it resizes) is invisible instead of a flash.
+    const hex = `#${bg.getHexString()}`;
+    if (hex !== pageBg.current) {
+      pageBg.current = hex;
+      document.documentElement.style.setProperty('--scene-bg', hex);
+    }
     if (sun.current) {
       sun.current.intensity = THREE.MathUtils.lerp(2.4, 0.35, e);
       sun.current.color.lerpColors(colors.sunDay, colors.sunNight, e);
@@ -288,6 +295,7 @@ function Studio() {
 export function Scene() {
   return (
     <Canvas
+      flat
       shadows="percentage"
       dpr={[1, 2]}
       camera={{ position: [16, 13, 4], fov: 32, near: 0.1, far: 100 }}
@@ -306,10 +314,6 @@ export function Scene() {
         far={3}
         frames={1}
       />
-      <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={1} intensity={0.7} />
-        <Vignette offset={0.3} darkness={0.2} />
-      </EffectComposer>
     </Canvas>
   );
 }
