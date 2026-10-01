@@ -24,7 +24,8 @@ export function App() {
 
   return (
     <>
-      <div className="fixed inset-0 z-0">
+      {/* 100lvh: the canvas keeps its size when the mobile address bar shows or hides. */}
+      <div className="fixed inset-x-0 top-0 z-0 h-lvh">
         {fontsReady && (
           <Suspense fallback={null}>
             <div className="fade-in h-full w-full">

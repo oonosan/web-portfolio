@@ -185,6 +185,19 @@ function StringLights() {
       new THREE.MeshStandardMaterial({ color: '#fff3d1', emissive: '#ffc46b', toneMapped: false }),
     [],
   );
+  // A soft additive halo stands in for bloom, which caused flicker on some phones.
+  const halo = useMemo(
+    () =>
+      new THREE.MeshBasicMaterial({
+        color: '#ffc46b',
+        transparent: true,
+        opacity: 0,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        toneMapped: false,
+      }),
+    [],
+  );
   const wire = useMemo(
     () => new THREE.CatmullRomCurve3(bulbs.map(([x, y, z]) => new THREE.Vector3(x, y + 0.03, z))),
     [bulbs],
@@ -193,6 +206,7 @@ function StringLights() {
   useFrame(({ clock }) => {
     const e = eveningAmount();
     mat.emissiveIntensity = 0.15 + e * (3.5 + Math.sin(clock.elapsedTime * 2) * 0.4);
+    halo.opacity = e * (0.3 + Math.sin(clock.elapsedTime * 2) * 0.05);
   });
 
   return (
@@ -202,9 +216,14 @@ function StringLights() {
         <meshStandardMaterial color={palette.metal} />
       </mesh>
       {bulbs.map((p, i) => (
-        <mesh key={i} position={p} material={mat}>
-          <sphereGeometry args={[0.035, 10, 10]} />
-        </mesh>
+        <group key={i} position={p}>
+          <mesh material={mat}>
+            <sphereGeometry args={[0.035, 10, 10]} />
+          </mesh>
+          <mesh material={halo}>
+            <sphereGeometry args={[0.1, 12, 12]} />
+          </mesh>
+        </group>
       ))}
     </group>
   );
