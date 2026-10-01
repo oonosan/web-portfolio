@@ -1,26 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-paper: #f5f1ea;
-  --color-paper-deep: #ece6db;
-  --color-ink: #181612;
-  --color-ink-soft: #5e594f;
-  --color-line: #d8d1c3;
-  --color-accent: #c2370f;
-  --color-accent-soft: #f3d9cd;
+  --color-paper: #fff7fb;
+  --color-paper-deep: #f8e6f1;
+  --color-ink: #4a3860;
+  --color-ink-soft: #85739a;
+  --color-line: #ecd8ea;
+  --color-accent: #d6589a;
+  --color-accent-soft: #fbd9e9;
+  --color-blush: #ffb3d4;
+  --color-night: #2e2643;
 
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  --font-sans: 'Nunito', system-ui, sans-serif;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 0;
 }
 
 body {
-  background: var(--color-paper);
+  background: #ead9f2;
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -36,21 +36,21 @@ body {
   outline-offset: 3px;
 }
 
-/* Small uppercase mono label used across sections */
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-ink-soft);
 }
 
 .section-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2rem, 4.5vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 
 .tag {
@@ -59,7 +59,139 @@ body {
   border-radius: 9999px;
   padding: 0.3rem 0.85rem;
   font-size: 0.8rem;
-  background: rgb(255 255 255 / 0.35);
+  background: rgb(255 255 255 / 0.5);
+}
+
+/* Text cards float over the 3D room. The section itself lets clicks through to the canvas. */
+.chapter {
+  position: relative;
+  pointer-events: none;
+  min-height: 150vh;
+  padding: 18vh 1.5rem 10vh;
+}
+
+.chapter:first-of-type,
+.chapter:last-of-type {
+  min-height: 100vh;
+}
+
+.card {
+  pointer-events: auto;
+  width: min(30rem, 100%);
+  border: 1px solid rgb(236 216 234 / 0.9);
+  border-radius: 1.75rem;
+  background: rgb(255 247 251 / 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.75rem;
+  box-shadow: 0 24px 50px -28px rgb(122 82 150 / 0.45);
+}
+
+.card-dark {
+  background: rgb(46 38 67 / 0.85);
+  border-color: rgb(255 255 255 / 0.1);
+  color: var(--color-paper);
+}
+
+@media (min-width: 768px) {
+  .chapter {
+    padding-left: max(2.5rem, 5vw);
+  }
+  .card {
+    padding: 2.25rem;
+  }
+}
+
+@media (max-aspect-ratio: 17/20) {
+  /* Portrait phones/tablets: the room sits in the top half, text cards rise from below. */
+  .chapter {
+    padding-top: 58vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: 130vh;
+  }
+  .card {
+    margin-inline: auto;
+  }
+}
+
+.scene-label {
+  white-space: nowrap;
+  border-radius: 9999px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0.35rem 0.8rem;
+  font: 500 0.78rem/1.2 var(--font-sans);
+  box-shadow: 0 8px 20px -10px rgb(74 56 96 / 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scene-label-sub {
+  font: 400 0.65rem/1.2 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-top: 2px;
+}
+
+@keyframes float-away {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(0.6);
+  }
+  30% {
+    transform: translateY(-14px) scale(1.2);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-60px) scale(1);
+  }
+}
+
+.scene-reaction {
+  font-size: 1.6rem;
+  color: #f06aa6;
+  animation: float-away 1.4s ease-out forwards;
+}
+
+@keyframes zzz {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.6);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(18px, -40px) scale(1.2);
+  }
+}
+
+.scene-zzz {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font: italic 600 1rem var(--font-display);
+  color: #85739a;
+  transition: opacity 0.3s;
+}
+
+.scene-zzz span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: zzz 3s linear infinite;
+}
+
+.scene-zzz span:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.scene-zzz span:nth-child(3) {
+  animation-delay: 2s;
 }
 
 @keyframes rise {
@@ -74,14 +206,27 @@ body {
 }
 
 .rise {
-  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 1.2s ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .rise {
+  .rise,
+  .fade-in,
+  .scene-zzz span,
+  .scene-reaction {
     animation: none;
   }
 }
