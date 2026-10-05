@@ -209,6 +209,41 @@ export const experiences = [
     ],
     technologies: ['Angular', 'Jest', 'Azure Pipelines', 'Git'],
   },
+  {
+    company: 'Endava: WellSky',
+    duration: 'Feb 2022 - Feb 2024',
+    role: 'Full Stack Developer | Healthcare',
+    description:
+      "Full stack development on WellSky's healthcare software as part of the Endava team.",
+    responsibilities: [] as string[],
+    technologies: [] as string[],
+  },
+  {
+    company: 'Cognizant Softvision',
+    duration: 'Sep 2019 - Oct 2021',
+    role: '.NET Full Stack Developer',
+    description:
+      'Built APIs and web applications across three client projects, working end to end with .NET Core, Node.js, Angular and MongoDB.',
+    responsibilities: [
+      'Humana (Nov 2020 - May 2021): API development with Node.js and MongoDB, and with .NET Core and MongoDB.',
+      'Donate, Softvision project (May 2020 - Oct 2020): Front and backend development with Angular and .NET Core.',
+      'Young Living (Sep 2019 - Apr 2020): API development and unit testing in .NET Core, and web application development in .NET Core and Angular for Young Living employees.',
+    ],
+    technologies: ['.NET Core', 'C#', 'Angular', 'Node.js', 'MongoDB'],
+  },
+  {
+    company: 'Globant: Ernst & Young',
+    duration: 'Feb 2019 - Sep 2019',
+    role: '.NET Developer',
+    description:
+      'Worked on the Ernst & Young project, building APIs in .NET Core with a strong focus on test coverage.',
+    responsibilities: [
+      'API Development: Building and maintaining backend APIs in .NET Core.',
+      'Testing: Keeping code coverage above 85% with unit testing and Moq.',
+      'Architecture: Implementing the Repository Pattern.',
+    ],
+    technologies: ['.NET Core', 'C#', 'Moq', 'Repository Pattern'],
+  },
 ];
 
 export type PetId = 'shiba' | 'calico' | 'black' | 'balinese' | 'tabby';

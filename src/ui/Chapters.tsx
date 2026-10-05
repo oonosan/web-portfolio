@@ -175,7 +175,7 @@ function Background() {
   return (
     <Chapter id="background">
       <h2 id="background-title" className="section-title">
-        Built on five years of shipping software.
+        Built on nearly seven years of shipping software.
       </h2>
       <p className="mt-4 text-sm leading-relaxed text-ink-soft">
         Before moving into discovery and prototyping I worked as a full stack developer in Angular
@@ -190,23 +190,25 @@ function Background() {
           </div>
           <p className="mt-1 text-sm font-medium text-accent">{e.role}</p>
           <p className="mt-3 text-sm leading-relaxed text-ink-soft">{e.description}</p>
-          <details className="mt-3">
-            <summary className="eyebrow cursor-pointer select-none hover:text-accent">
-              Responsibilities &amp; stack
-            </summary>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink-soft">
-              {e.responsibilities.map((r) => (
-                <li key={r}>{r}</li>
-              ))}
-            </ul>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {e.technologies.map((t) => (
-                <span key={t} className="tag !py-0.5 !text-xs">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </details>
+          {(e.responsibilities.length > 0 || e.technologies.length > 0) && (
+            <details className="mt-3">
+              <summary className="eyebrow cursor-pointer select-none hover:text-accent">
+                Responsibilities &amp; stack
+              </summary>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink-soft">
+                {e.responsibilities.map((r) => (
+                  <li key={r}>{r}</li>
+                ))}
+              </ul>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {e.technologies.map((t) => (
+                  <span key={t} className="tag !py-0.5 !text-xs">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </details>
+          )}
         </article>
       ))}
     </Chapter>
