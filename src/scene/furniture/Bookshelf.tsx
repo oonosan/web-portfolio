@@ -7,7 +7,18 @@ import { Succulent, TrailingPlant } from '../plants';
 
 export const SHELF = { width: 1.4, depth: 0.4, height: 2.0, levels: [0.06, 0.52, 0.98, 1.44] };
 
-const titles = ['Finthrive', 'Kinetic', 'Angular', '.NET C#', 'Research', 'UX flows', 'Testing'];
+const titles = [
+  'Finthrive',
+  'Kinetic',
+  'Angular',
+  '.NET C#',
+  'Research',
+  'UX flows',
+  'Testing',
+  'WellSky',
+  'Cognizant',
+  'Globant',
+];
 const bookColors = [
   '#f7b8d2',
   '#bfe8d6',
@@ -99,10 +110,10 @@ function PhotoFrame(props: ThreeElements['group']) {
 export function Bookshelf(props: ThreeElements['group']) {
   const shelves = useMemo(
     () => [
-      fillBooks(-0.66, 0.66, 11, titles.slice(4)),
+      fillBooks(-0.66, 0.66, 11, titles.slice(4, 7)),
       fillBooks(-0.66, 0.12, 12, titles.slice(0, 2)),
       fillBooks(0.1, 0.66, 13, titles.slice(2, 4)),
-      fillBooks(-0.66, -0.15, 14, []),
+      fillBooks(-0.66, -0.15, 14, titles.slice(7)),
     ],
     [],
   );
