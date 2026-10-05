@@ -175,7 +175,7 @@ function Background() {
   return (
     <Chapter id="background">
       <h2 id="background-title" className="section-title">
-        Built on five years of shipping software.
+        Built on nearly seven years of shipping software.
       </h2>
       <p className="mt-4 text-sm leading-relaxed text-ink-soft">
         Before moving into discovery and prototyping I worked as a full stack developer in Angular
